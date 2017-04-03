@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Page d'inscription</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:fieldset legend="Inscription">
+			<p:panelGrid columns="2" style="margin: 0 auto;">
+				<p:outputLabel value="Nom" />
+				<p:inputText value="#{personneBean.personne.nom}" required="true" />
+				<p:outputLabel value="Prénom" />
+				<p:inputText value="#{personneBean.personne.prenom}" required="true" />
+				<p:outputLabel value="Login" />
+				<p:inputText value="#{personneBean.personne.login}" required="true" />
+				<p:outputLabel value="Date Naissance" />
+				<p:calendar pattern="dd/MM/yyyy"
+					value="#{personneBean.personne.dateNaissance}" required="true" />
+				<p:outputLabel value="Mot de passe" />
+				<p:password value="#{personneBean.personne.pwd}" required="true" />
+				<p:outputLabel value="Ville" />
+				<p:selectOneMenu value="#{personneBean.personne.ville}"
+					required="true">
+					<f:selectItem itemLabel="Paris" itemValue="Paris" />
+					<f:selectItem itemLabel="Nantes" itemValue="Nantes" />
+					<f:selectItem itemLabel="Lile" itemValue="Lile" />
+
+
+				</p:selectOneMenu>
+				<p:outputLabel value="Poste" />
+				<p:selectOneRadio value="#{personneBean.personne.poste}"
+					required="true">
+					<f:selectItem itemLabel="Etudiant" itemValue="Etudiant" />
+					<f:selectItem itemLabel="Professeur" itemValue="Professeur" />
+				</p:selectOneRadio>
+				<p:outputLabel value="Sexe" />
+				<p:selectOneRadio value="#{personneBean.personne.sexe}"
+					required="true">
+					<f:selectItem itemLabel="Femme" itemValue="Femme" />
+					<f:selectItem itemLabel="Homme" itemValue="Homme" />
+				</p:selectOneRadio>
+				<p:commandButton value="Valider" action="#{personneBean.onSave}" />
+				<p:commandButton value="Annuler" type="reset" />
+			</p:panelGrid>
+		</p:fieldset>
+	</h:form>
+</h:body>
+</html>
